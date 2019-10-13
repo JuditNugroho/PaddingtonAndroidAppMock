@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SIS APP</string>
+    <string name="username">Username</string>
+    <string name="hintusername">Masukkan username anda</string>
+    <string name="password">Password</string>
+    <string name="hintpassword">Masukkan password anda</string>
+    <string name="titikdua">:</string>
+    <string name="login">Login</string>
+</resources>
