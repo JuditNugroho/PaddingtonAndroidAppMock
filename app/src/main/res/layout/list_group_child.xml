@@ -3,11 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/warnachild"
     android:padding="8dp">
 
     <TextView
         android:id="@+id/listChildMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#1f2124"
+        android:textSize="14sp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
 </LinearLayout>
