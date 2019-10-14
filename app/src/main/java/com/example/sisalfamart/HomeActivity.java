@@ -9,7 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -146,9 +145,8 @@ public class HomeActivity extends AppCompatActivity
                 if (childList.get(headerList.get(groupPosition)) != null) {
                     MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
                     if (model.namaMenu.length() > 0) {
-                        Log.d("Nama Menu :", model.namaMenu);
-                        if(model.namaMenu.contentEquals("MS TAG")){
-                            Mstagmaster fragment = new Mstagmaster();
+                        if(model.namaMenu.contentEquals("MS Proportion")){
+                            MsproportionFragments fragment = new MsproportionFragments();
                             fragmentTransaction.add(R.id.content_frame, fragment);
                             fragmentTransaction.addToBackStack(null);
                             fragmentTransaction.commit();
