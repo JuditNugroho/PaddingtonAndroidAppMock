@@ -1,20 +1,18 @@
 package com.example.sisalfamart;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ExpandableListView;
 
 import com.example.sisalfamart.controllers.ExpandableListAdapter;
@@ -55,7 +53,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -76,22 +74,18 @@ public class HomeActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     private void prepareMenuData() {
 
-        MenuModel menuModel = new MenuModel("Transaksi", true, false);
+        MenuModel menuModel = new MenuModel("Data Master", true, true);
         headerList.add(menuModel);
         if (!menuModel.hasChildren) {
             childList.put(menuModel, null);
         }
-
-        //Create Menu master
-        menuModel = new MenuModel("Data Master", true, true);
-        headerList.add(menuModel);
 
         //Create Menu Child Master
         List<MenuModel> childModelsList = new ArrayList<>();
@@ -102,6 +96,13 @@ public class HomeActivity extends AppCompatActivity
 
         if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
+        }
+
+        //Create Menu master
+        menuModel = new MenuModel("Transaksi", true, false);
+        headerList.add(menuModel);
+        if (!menuModel.hasChildren) {
+            childList.put(menuModel, null);
         }
 
         childModelsList = new ArrayList<>();
@@ -139,11 +140,19 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
                 if (childList.get(headerList.get(groupPosition)) != null) {
                     MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
                     if (model.namaMenu.length() > 0) {
-//                        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-//                        startActivity(intent);
+                        Log.d("Nama Menu :", model.namaMenu);
+                        if(model.namaMenu.contentEquals("MS TAG")){
+                            Mstagmaster fragment = new Mstagmaster();
+                            fragmentTransaction.add(R.id.content_frame, fragment);
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        }
                         onBackPressed();
                     }
                 }
