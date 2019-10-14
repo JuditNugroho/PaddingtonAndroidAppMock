@@ -46,7 +46,7 @@
             android:drawableLeft="@drawable/ic_lock"
             android:drawablePadding="10dp"
             android:hint="@string/hintpassword"
-            android:inputType="textPassword"
+            android:password="true"
             android:padding="15dp"
             android:textColor="#fff"
             android:textColorHighlight="#fff"
