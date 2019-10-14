@@ -6,15 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Mstagmaster extends Fragment {
+
+public class MsproportionFragments extends Fragment {
 
 
-    public Mstagmaster() {
+    public MsproportionFragments() {
         // Required empty public constructor
     }
 
-    public static Mstagmaster newInstance() {
-        Mstagmaster fragment = new Mstagmaster();
+    public static MsproportionFragments newInstance() {
+        MsproportionFragments fragment = new MsproportionFragments();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -28,8 +29,8 @@ public class Mstagmaster extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.fragment_mstagmaster, container, false);
+        return inflater.inflate(R.layout.fragment_msproportion_fragments, container, false);
     }
+
 
 }
