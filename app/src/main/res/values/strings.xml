@@ -9,6 +9,8 @@
     <string name="titikdua">:</string>
     <string name="login">Login</string>
     <string name="alfamart">PT Sumber Alfaria Trijaya Tbk</string>
+    <string name="SIS">STORE INFORMATION SYSTEM</string>
+    <string name="help">Need Help ?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

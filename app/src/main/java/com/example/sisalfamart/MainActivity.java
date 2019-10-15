@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sisalfamart.controllers.LoginControllers;
@@ -20,6 +21,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     EditText edittextUsername, edittextPassword;
     Button btnLogin;
+    TextView clickHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         edittextUsername = (EditText) findViewById(R.id.edittextUsername);
         edittextPassword = (EditText) findViewById(R.id.edittextPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        clickHelp = findViewById(R.id.clickHelp);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        clickHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent help = new Intent(MainActivity.this, help.class);
+                startActivity(help);
             }
         });
     }
